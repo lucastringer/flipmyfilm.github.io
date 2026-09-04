@@ -3,29 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Negative Flipper</title>
+  <title>FlipMyFilm — Fine Art 35mm Negatives</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>35mm Photo Flipper</h1>
-    <p>Upload your scanned photos to flip them 180° automatically.</p>
 
-    <div class="controls">
-      <label class="btn">
-        Select Files
-        <input type="file" id="fileInput" multiple accept="image/*">
-      </label>
-      <label class="btn">
-        Select Folder
-        <input type="file" id="folderInput" webkitdirectory directory multiple accept="image/*">
-      </label>
-      <button id="downloadAllBtn" class="btn primary" disabled>Download All as ZIP</button>
-    </div>
+  <img src="1.jpg" alt="Sample 1" class="corner-img top-left">
+  <img src="2.jpg" alt="Sample 2" class="corner-img top-right">
+  <img src="3.jpg" alt="Sample 3" class="corner-img bottom-left">
+  <img src="4.jpg" alt="Sample 4" class="corner-img bottom-right">
 
-    <div id="gallery" class="gallery"></div>
-  </div>
+  <main class="page-wrapper">
+    <header class="hero-section">
+      <span class="subtitle">35mm Scan Correction Studio</span>
+      <h1>FlipMyFilm</h1>
+      <p class="description">
+        Restore your inverted film laboratory scans to their proper orientation. 
+        Select individual frame captures or entire scan directories to apply an exact 180-degree rotation.
+      </p>
+      <div class="divider"></div>
+    </header>
+
+    <section class="upload-section">
+      <div class="button-group">
+        <label class="btn">
+          Select Individual Scans
+          <input type="file" id="fileInput" multiple accept="image/*">
+        </label>
+        <label class="btn">
+          Select Folder
+          <input type="file" id="folderInput" webkitdirectory directory multiple accept="image/*">
+        </label>
+      </div>
+
+      <div id="loader" class="loader-container hidden">
+        <div class="spinner"></div>
+        <p id="loaderStatus">Processing Scans...</p>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="action-bar">
+        <button id="downloadAllBtn" class="btn primary" disabled>Download Zip Archive</button>
+      </div>
+      <div id="gallery" class="gallery"></div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
